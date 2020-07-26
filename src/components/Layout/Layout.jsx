@@ -11,13 +11,9 @@ import { useStaticQuery, graphql } from "gatsby"
 import { Link } from "gatsby"
 
 import Header from "../Header"
-import "./Layout.module.scss"
+import ListLink from "../ListLink"
 
-const ListLink = props => (
-  <li style={{ display: `inline-block`, marginRight: `1rem` }}>
-    <Link to={props.to}>{props.children}</Link>
-  </li>
-)
+import "./Layout.module.scss"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -31,7 +27,7 @@ const Layout = ({ children }) => {
   `)
 
   return (
-    <>
+    <React.Fragment>
       <Header>
         <Link to="/" style={{ textShadow: `none`, backgroundImage: `none` }}>
           <h3 style={{ display: `inline` }}>{data.site.siteMetadata.title}</h3>
@@ -42,6 +38,7 @@ const Layout = ({ children }) => {
           <ListLink to="/using-typescript/">using-typescript</ListLink>
         </ul>
       </Header>
+
       <div
         style={{
           margin: `0 auto`,
@@ -56,7 +53,7 @@ const Layout = ({ children }) => {
           <a href="https://www.gatsbyjs.org">Gatsby</a>
         </footer>
       </div>
-    </>
+    </React.Fragment>
   )
 }
 
