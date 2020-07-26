@@ -33,9 +33,8 @@ const Layout = ({ children }) => {
           <h3 style={{ display: `inline` }}>{data.site.siteMetadata.title}</h3>
         </Link>
         <ul style={{ listStyle: `none`, float: `right` }}>
-          <ListLink to="/">Home</ListLink>
-          <ListLink to="/page-2/">page-2</ListLink>
-          <ListLink to="/using-typescript/">using-typescript</ListLink>
+          <ListLink to="/">博客</ListLink>
+          <ListLink to="/page-2/">摄影</ListLink>
         </ul>
       </Header>
 
