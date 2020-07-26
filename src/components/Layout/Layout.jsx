@@ -8,9 +8,16 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
+import { Link } from "gatsby"
 
-import Header from "./Header"
-import "./layout.css"
+import Header from "../Header"
+import "./Layout.module.scss"
+
+const ListLink = props => (
+  <li style={{ display: `inline-block`, marginRight: `1rem` }}>
+    <Link to={props.to}>{props.children}</Link>
+  </li>
+)
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -25,7 +32,16 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata.title} />
+      <Header>
+        <Link to="/" style={{ textShadow: `none`, backgroundImage: `none` }}>
+          <h3 style={{ display: `inline` }}>{data.site.siteMetadata.title}</h3>
+        </Link>
+        <ul style={{ listStyle: `none`, float: `right` }}>
+          <ListLink to="/">Home</ListLink>
+          <ListLink to="/page-2/">page-2</ListLink>
+          <ListLink to="/using-typescript/">using-typescript</ListLink>
+        </ul>
+      </Header>
       <div
         style={{
           margin: `0 auto`,

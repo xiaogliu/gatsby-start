@@ -4,7 +4,7 @@ import React from "react"
 
 import STYLES from "./Header.module.scss"
 
-const Header = ({ siteTitle }) => (
+const Header = ({ siteTitle, children }) => (
   <header className={STYLES.Header}>
     <div
       style={{
@@ -13,17 +13,7 @@ const Header = ({ siteTitle }) => (
         padding: `1.45rem 1.0875rem`,
       }}
     >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
+      {children}
     </div>
   </header>
 )
