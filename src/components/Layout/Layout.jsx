@@ -34,7 +34,8 @@ const Layout = ({ children }) => {
         </Link>
         <ul style={{ listStyle: `none`, float: `right` }}>
           <ListLink to="/">博客</ListLink>
-          <ListLink to="/page-2/">摄影</ListLink>
+          <ListLink to="/photography/">摄影</ListLink>
+          <ListLink to="/cookbook/">菜谱</ListLink>
         </ul>
       </Header>
 
