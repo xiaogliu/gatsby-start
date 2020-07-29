@@ -9,9 +9,13 @@ module.exports = {
     `gatsby-plugin-sass`,
     {
       resolve: `gatsby-source-filesystem`,
+      // options: {
+      //   name: `images`,
+      //   path: `${__dirname}/src/images`,
+      // },
       options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
+        name: `src`,
+        path: `${__dirname}/src/`,
       },
     },
     `gatsby-transformer-remark`,
