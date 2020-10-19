@@ -1,6 +1,5 @@
 import React from "react"
-import { graphql } from "gatsby"
-// import { Link } from "gatsby"
+import { Link, graphql } from "gatsby"
 
 import Layout from "../components/Layout"
 import Image from "../components/image"
@@ -16,21 +15,12 @@ const IndexPage = ({ data }) => {
       <h4>{data.allMarkdownRemark.totalCount} Posts</h4>
       {data.allMarkdownRemark.edges.map(({ node }) => (
         <div key={node.id}>
-          <h3
-          // css={css`
-          //   margin-bottom: ${rhythm(1 / 4)};
-          // `}
-          >
-            {node.frontmatter.title}{" "}
-            <span
-            // css={css`
-            //   color: #bbb;
-            // `}
-            >
-              — {node.frontmatter.date}
-            </span>
-          </h3>
-          <p>{node.excerpt}</p>
+          <Link to={node.fields.slug}>
+            <h3>
+              {node.frontmatter.title} <span>— {node.frontmatter.date}</span>
+            </h3>
+            <p>{node.excerpt}</p>
+          </Link>
         </div>
       ))}
       <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
@@ -52,6 +42,9 @@ export const query = graphql`
           frontmatter {
             title
             date(formatString: "DD MMMM, YYYY")
+          }
+          fields {
+            slug
           }
           excerpt
         }
