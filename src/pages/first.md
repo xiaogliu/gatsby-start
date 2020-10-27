@@ -1,6 +1,7 @@
 ---
 title: "Sweet Pandas Eating Sweets"
 date: "2020-07-28"
+tags: [hahah, ES6, ES7]
 ---
 
 Pandas are really sweet.

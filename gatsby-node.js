@@ -32,7 +32,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 
     createNodeField({
       node,
-      name: `slug`,
+      name: 'slug',
       value: slug,
     })
   }
@@ -77,6 +77,11 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     createPage({
       path: node.fields.slug,
       component: blogPostTemplate,
+      context: {
+        // Data passed to context is available
+        // in page queries as GraphQL variables.
+        slug: node.fields.slug,
+      },
     })
   })
   // Extract tag data from query
