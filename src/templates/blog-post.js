@@ -3,12 +3,23 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 
 export default ({ data }) => {
-  const post = data.markdownRemark
+  const {
+    html,
+    frontmatter: { title, tags },
+  } = data.markdownRemark
   return (
     <Layout>
       <div>
-        <h1>{post.frontmatter.title}</h1>
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
+        <h1>{title}</h1>
+        {tags && tags.length > 0 && (
+          <section>
+            {tags.map(tag => (
+              <span key={tag}>{tag}</span>
+            ))}
+          </section>
+        )}
+
+        <div dangerouslySetInnerHTML={{ __html: html }} />
       </div>
     </Layout>
   )
@@ -19,6 +30,7 @@ export const query = graphql`
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       frontmatter {
+        tags
         title
       }
     }

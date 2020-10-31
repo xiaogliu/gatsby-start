@@ -72,7 +72,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     return
   }
   const posts = result.data.postsRemark.edges
-  // Create post detail pages
+  // Create post detail pages, node will pass to template page
   posts.forEach(({ node }) => {
     createPage({
       path: node.fields.slug,
