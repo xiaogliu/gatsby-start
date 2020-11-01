@@ -13,7 +13,7 @@ import { Link } from "gatsby"
 import Header from "../Header"
 import ListLink from "../ListLink"
 
-import "./Layout.module.scss"
+import STYLES from "./Layout.module.scss"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -29,23 +29,17 @@ const Layout = ({ children }) => {
   return (
     <React.Fragment>
       <Header>
-        <Link to="/" style={{ textShadow: `none`, backgroundImage: `none` }}>
-          <h3 style={{ display: `inline` }}>{data.site.siteMetadata.title}</h3>
+        <Link to="/">
+          <h3>{data.site.siteMetadata.title}</h3>
         </Link>
-        <ul style={{ listStyle: `none`, float: `right` }}>
+        <ul className={STYLES.Layout__menu}>
           <ListLink to="/">博客</ListLink>
           <ListLink to="/photography/">摄影</ListLink>
           <ListLink to="/cookbook/">菜谱</ListLink>
         </ul>
       </Header>
 
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
-        }}
-      >
+      <div className={STYLES.Layout__main}>
         <main>{children}</main>
         <footer>
           © {new Date().getFullYear()}, Built with
