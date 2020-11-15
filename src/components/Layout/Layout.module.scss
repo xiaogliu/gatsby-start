@@ -1,10 +1,13 @@
+@import "../../styles/variable.scss";
+
 .Layout {
   &__menu {
     display: flex;
   }
+
   &__main {
     margin: 0 auto;
-    max-width: 960px;
-    padding: 0 1.0875rem 1.45rem;
+    max-width: $guang-blog-max-width;
+    padding: 0 $guang-space-sm;
   }
 }

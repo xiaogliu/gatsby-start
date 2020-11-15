@@ -33,7 +33,7 @@ const Layout = ({ children }) => {
           <h3>{data.site.siteMetadata.title}</h3>
         </Link>
         <ul className={STYLES.Layout__menu}>
-          <ListLink to="/">博客</ListLink>
+          <ListLink to="/blog">博客</ListLink>
           <ListLink to="/photography/">摄影</ListLink>
           <ListLink to="/cookbook/">菜谱</ListLink>
         </ul>

@@ -1,17 +1,14 @@
 $guang-main-color: #252a2d;
 $guang-color-white: #ffffff;
-$guang-color-black: #000000;
+$guang-color-black: #222222;
 $guang-color-blue: #0366d6;
 $guang-color-green: #1abc9c;
 $guang-color-gray: #666666;
-$guang-color-gray-tint-01: #d5d5d5;
+$guang-color-gray-tint-01: #aaaaaa;
 $guang-color-gray-tint-02: #bbbbbb;
-
-$guang-color-gray-tint-03: rgb(143, 144, 160);
-$guang-color-gray-tint-04: rgb(178, 178, 191);
-$guang-color-gray-tint-05: rgb(205, 205, 215);
-$guang-color-gray-tint-06: rgb(221, 221, 229);
-$guang-color-gray-tint-07: rgb(241, 242, 248);
+$guang-color-gray-tint-03: #cfcfcf;
+$guang-color-gray-tint-04: #dfdfdf;
+$guang-color-gray-tint-05: #efefef;
 
 $guang-font-size-base: 16px;
 $guang-font-size-sm: 14px;
@@ -19,8 +16,10 @@ $guang-font-size-lg: 18px;
 $guang-font-size-xl: 24px;
 $guang-font-size-xxl: 26px;
 
-$guang-font-space-base: 16px;
-$guang-font-space-sm: 14px;
-$guang-font-space-xs: 6px;
-$guang-font-space-lg: 24px;
-$guang-font-space-one-pixel: 1px;
+$guang-space-base: 16px;
+$guang-space-sm: 14px;
+$guang-space-xs: 6px;
+$guang-space-lg: 24px;
+$guang-space-one-pixel: 1px;
+
+$guang-blog-max-width: 960px;

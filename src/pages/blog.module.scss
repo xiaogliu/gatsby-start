@@ -1,20 +1,32 @@
-.index {
+@import "../styles/variable.scss";
+
+.Blog {
   &__postContainer {
-    padding: 16px;
-    margin-bottom: 16px;
-    border: 1px solid #dadce0;
-    border-radius: 8px;
+    padding: $guang-space-lg 0;
+    border-bottom: $guang-space-one-pixel solid $guang-color-gray-tint-05;
+  }
+
+  &__postTitle {
+    font-size: $guang-space-lg;
+    font-weight: normal;
   }
 
   &__postMetaData {
     display: flex;
+    color: $guang-color-gray-tint-01;
+    padding: $guang-space-xs 0;
+    font-size: $guang-space-sm;
 
     p {
+      margin-right: $guang-space-base;
+    }    
 
+    span {
+      margin-right: $guang-space-xs;
     }
+  }
 
-    // &--category {
-
-    // }
+  &__postExcerpt {
+    color: $guang-color-gray;
   }
 }

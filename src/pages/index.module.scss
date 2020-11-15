@@ -18,8 +18,8 @@
   }
 
   hr {
-    max-width: $guang-font-space-base * 25;
-    height: $guang-font-space-one-pixel;
+    max-width: $guang-space-base * 25;
+    height: $guang-space-one-pixel;
     border: none;
     margin: 0 auto;
     background-image: linear-gradient(0deg, transparent, $guang-color-gray-tint-01, transparent);
@@ -30,12 +30,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: $guang-font-space-base 0;
+    margin: $guang-space-base 0;
   }
 
   &__navItem {
     a {
-      margin: 0 $guang-font-space-xs;
+      margin: 0 $guang-space-xs;
     }
 
     span {

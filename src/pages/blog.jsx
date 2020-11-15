@@ -7,13 +7,10 @@ import SEO from "../components/seo"
 
 import STYLES from "./blog.module.scss"
 
-const IndexPage = ({ data }) => {
+const BlogPage = ({ data }) => {
   return (
     <Layout>
       <SEO title="Blog" />
-      <h1>Hi people</h1>
-      <p>Welcome to 小光的 blog</p>
-      <h4>{data.allMarkdownRemark.totalCount} Posts</h4>
       {data.allMarkdownRemark.edges.map(({ node }) => {
         const {
           id,
@@ -23,35 +20,29 @@ const IndexPage = ({ data }) => {
         } = node
 
         return (
-          <div key={id} className={STYLES.index__postContainer}>
+          <div key={id} className={STYLES.Blog__postContainer}>
             <Link to={slug}>
-              <h3>{title}</h3>
+              <h3 className={STYLES.Blog__postTitle}>{title}</h3>
+              <section className={STYLES.Blog__postMetaData}>
+                <p>{date}</p>
+                {tags && tags.length > 0 && (
+                  <p>
+                    {tags.map(tag => (
+                      <span key={tag}>#{tag}</span>
+                    ))}
+                  </p>
+                )}
+              </section>
+              <p className={STYLES.Blog__postExcerpt}>{excerpt}</p>
             </Link>
-            <p>{excerpt}</p>
-            <section className={STYLES.index__postMetaData}>
-              <p className={STYLES["index__postMetaData--category"]}>
-                Category
-              </p>
-              {tags && tags.length > 0 && (
-                <p>
-                  {tags.map(tag => (
-                    <span key={tag}>#{tag}</span>
-                  ))}
-                </p>
-              )}
-              <p>{date}</p>
-            </section>
           </div>
         )
       })}
-      <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-        <Image />
-      </div>
     </Layout>
   )
 }
 
-export default IndexPage
+export default BlogPage
 
 export const query = graphql`
   query {
