@@ -1,25 +1,49 @@
+@import "../styles/variable.scss";
+
 .Index {
   position: absolute;
-  top: 50%;
+  top: 45%;
+  left: 50%;
   width: 100%;
-  height: 100%;
-  height: 300px;
-  margin-top: -150px;
-  margin-bottom: 100px;
+  transform: translate(-50%, -50%);
   text-align: center;
 
+  &__name {
+    font-size: $guang-font-size-xxl;
+  }
+
+  &__slogan {
+    margin-bottom: $guang-font-size-xl;
+    color: $guang-color-gray;
+  }
+
   hr {
-    max-width: 400px;
-    height: 1px;
-    margin-top: -1px;
+    max-width: $guang-font-space-base * 25;
+    height: $guang-font-space-one-pixel;
     border: none;
     margin: 0 auto;
-    background-image: linear-gradient(0deg, transparent, #d5d5d5, transparent);
-    background-image: -webkit-linear-gradient(
-      0deg,
-      transparent,
-      #d5d5d5,
-      transparent
-    );
+    background-image: linear-gradient(0deg, transparent, $guang-color-gray-tint-01, transparent);
+    background-image: -webkit-linear-gradient(0deg, transparent, $guang-color-gray-tint-01, transparent);
+  }
+
+  &__nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: $guang-font-space-base 0;
+  }
+
+  &__navItem {
+    a {
+      margin: 0 $guang-font-space-xs;
+    }
+
+    span {
+      color: $guang-color-gray-tint-02;
+    }
+
+    &:last-child span {
+     display: none;
+    }
   }
 }

@@ -18,9 +18,9 @@ const IndexPage = ({ data }) => {
       </section>
       <hr />
 
-      <ul>
+      <ul className={STYLES.Index__nav}>
         {data.site.siteMetadata.home_nav.map(nav => (
-          <li key={nav.url}>
+          <li key={nav.url} className={STYLES.Index__navItem}>
             {nav.internal_link ? (
               <Link to={nav.url}>{nav.name}</Link>
             ) : (
