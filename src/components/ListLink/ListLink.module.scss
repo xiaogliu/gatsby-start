@@ -1,4 +1,6 @@
+@import "../../styles/variable.scss";
+
 .ListLink {
   display: inline-block;
-  margin-right: 1rem;
+  margin-right: $guang-space-sm;
 }

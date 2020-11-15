@@ -3,6 +3,17 @@
 .Layout {
   &__menu {
     display: flex;
+    padding: $guang-space-sm 0;
+  }
+
+  &__home {
+	display: flex;
+	align-items: flex-end;
+  }
+
+  &__slogan {
+  	font-size: $guang-font-size-xs;
+  	color: $guang-color-gray-tint-02;
   }
 
   &__main {

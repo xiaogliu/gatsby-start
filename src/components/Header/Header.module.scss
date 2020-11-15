@@ -2,8 +2,8 @@
 
 .Header {
   background-color: $guang-color-white;
-  padding: $guang-space-sm 0;
-  border-bottom: $guang-space-one-pixel solid $guang-color-gray-tint-05;
+  padding: $guang-space-one-pixel 0;
+  box-shadow: 0px $guang-space-xs $guang-space-xs $guang-color-gray-tint-05;
 
   &__main {
     display: flex;

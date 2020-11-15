@@ -9,6 +9,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 import { Link } from "gatsby"
+import Img from "gatsby-image"
 
 import Header from "../Header"
 import ListLink from "../ListLink"
@@ -17,10 +18,20 @@ import STYLES from "./Layout.module.scss"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
+    query AvatarQuery {
+      file(relativePath: { eq: "avatar.jpg" }) {
+        childImageSharp {
+          # Specify the image processing specifications right in the query.
+          # Makes it trivial to update as your page's design changes.
+          fixed(width: 100, height: 100) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
+
       site {
         siteMetadata {
-          title
+          slogan
         }
       }
     }
@@ -29,8 +40,9 @@ const Layout = ({ children }) => {
   return (
     <React.Fragment>
       <Header>
-        <Link to="/">
-          <h3>{data.site.siteMetadata.title}</h3>
+        <Link to="/" className={STYLES.Layout__home} >
+          <Img style={{width: '50px', height: '50px'}} fixed={data.file.childImageSharp.fixed} />
+          <span className={STYLES.Layout__slogan} >{data.site.siteMetadata.slogan}</span>
         </Link>
         <ul className={STYLES.Layout__menu}>
           <ListLink to="/blog">博客</ListLink>
