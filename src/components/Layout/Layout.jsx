@@ -41,7 +41,7 @@ const Layout = ({ children }) => {
     <React.Fragment>
       <Header>
         <Link to="/" className={STYLES.Layout__home} >
-          <Img style={{width: '50px', height: '50px'}} fixed={data.file.childImageSharp.fixed} />
+          <Img style={{width: '40px', height: '40px'}} fixed={data.file.childImageSharp.fixed} />
           <span className={STYLES.Layout__slogan} >{data.site.siteMetadata.slogan}</span>
         </Link>
         <ul className={STYLES.Layout__menu}>

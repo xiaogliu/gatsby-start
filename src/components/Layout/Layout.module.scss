@@ -14,10 +14,11 @@
   &__slogan {
   	font-size: $guang-font-size-xs;
   	color: $guang-color-gray-tint-02;
+  	margin-left: $guang-space-xs;
   }
 
   &__main {
-    margin: 0 auto;
+    margin: $guang-space-sm auto;
     max-width: $guang-blog-max-width;
     padding: 0 $guang-space-sm;
   }
