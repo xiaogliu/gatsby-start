@@ -1,7 +1,6 @@
 @import "../../styles/variable.scss";
 
 .Header {
-  background-color: $guang-color-white;
   padding: $guang-space-one-pixel 0;
   box-shadow: 0px $guang-space-xs $guang-space-xs $guang-color-gray-tint-05;
 
@@ -12,5 +11,9 @@
     margin: 0 auto;
     max-width: $guang-blog-max-width;
     padding: 0 $guang-space-sm;
+
+    img {
+      border-radius: 50%;
+    }
   }
 }

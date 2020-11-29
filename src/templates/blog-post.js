@@ -2,22 +2,29 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 
+import STYLES from "./blog-post.module.scss"
+
 export default ({ data }) => {
   const {
     html,
-    frontmatter: { title, tags },
+    frontmatter: { title, tags, date },
   } = data.markdownRemark
   return (
     <Layout>
-      <div>
-        <h1>{title}</h1>
-        {tags && tags.length > 0 && (
-          <section>
-            {tags.map(tag => (
-              <span key={tag}>{tag}</span>
-            ))}
-          </section>
-        )}
+      <div className={STYLES.BlogPost}>
+        <section className={STYLES.BlogPost__metaInfo}>
+          <h1>{title}</h1>
+          <p className={STYLES.BlogPost__metaInfoDate}>
+            <span>{date}</span>
+            {tags && tags.length > 0 && (
+              <span className={STYLES.BlogPost__metaInfoTag}>
+                {tags.map(tag => (
+                  <span key={tag}>#{tag}</span>
+                ))}
+              </span>
+            )}
+          </p>
+        </section>
 
         <div dangerouslySetInnerHTML={{ __html: html }} />
       </div>
@@ -32,6 +39,7 @@ export const query = graphql`
       frontmatter {
         tags
         title
+        date(formatString: "DD MMMM, YYYY")
       }
     }
   }
