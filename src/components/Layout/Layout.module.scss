@@ -18,7 +18,7 @@
   }
 
   &__main {
-    margin: $guang-space-sm auto;
+    margin: 3.5 * $guang-space-base auto $guang-space-sm ;
     max-width: $guang-blog-max-width;
     padding: 0 $guang-space-sm;
   }

@@ -1,8 +1,12 @@
 @import "../../styles/variable.scss";
 
 .Header {
+  position: fixed;
+  top: 0;
+  width: 100%;
   padding: $guang-space-one-pixel 0;
   box-shadow: 0px $guang-space-xs $guang-space-xs $guang-color-gray-tint-05;
+  background-color: $guang-color-white;
 
   &__main {
     display: flex;
