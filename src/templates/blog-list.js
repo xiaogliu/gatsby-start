@@ -5,10 +5,11 @@ import SEO from "../components/seo"
 
 import STYLES from "./blog-list.module.scss"
 
-const BlogList = ({ data }) => {
+const BlogList = ({ pageContext, data }) => {
+  const { numPages, currentPage } = pageContext
   return (
     <Layout>
-      <SEO title="Blog" />
+      <SEO title="Blog List" />
       {data.allMarkdownRemark.edges.map(({ node }) => {
         const {
           id,
@@ -36,6 +37,16 @@ const BlogList = ({ data }) => {
           </div>
         )
       })}
+      {/* TODO: create pagination component */}
+      <div>
+        {Array.from({ length: numPages }).map((el, i) => (
+          <Link to={i === 0 ? "/blog" : `/blog/${i}`}>
+            <span style={{ color: currentPage === i ? "red" : "" }}>
+              {i + 1}
+            </span>
+          </Link>
+        ))}
+      </div>
     </Layout>
   )
 }
