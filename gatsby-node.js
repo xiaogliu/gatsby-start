@@ -26,13 +26,13 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       // TODO: this can be more robust
       const year = node.frontmatter.date.slice(0, 4)
       const month = node.frontmatter.date.slice(5, 7)
-      const day = node.frontmatter.date.slice(9, 11)
+      const day = node.frontmatter.date.slice(8, 10)
       slug = `/${year}/${month}/${day}/${name}/`
     }
 
     createNodeField({
       node,
-      name: 'slug',
+      name: "slug",
       value: slug,
     })
   }
@@ -42,11 +42,12 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions
   const blogPostTemplate = path.resolve("src/templates/blog-post.js")
   const tagTemplate = path.resolve("src/templates/tags.js")
+  const blogList = path.resolve("src/templates/blog-list.js")
   const result = await graphql(`
     {
       postsRemark: allMarkdownRemark(
-        sort: { order: DESC, fields: [frontmatter___date] }
-        limit: 2000
+        sort: { fields: [frontmatter___date], order: DESC }
+        limit: 1000
       ) {
         edges {
           node {
@@ -62,6 +63,18 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       tagsGroup: allMarkdownRemark(limit: 2000) {
         group(field: frontmatter___tags) {
           fieldValue
+        }
+      }
+      blogListData: allMarkdownRemark(
+        sort: { fields: [frontmatter___date], order: DESC }
+        limit: 1000
+      ) {
+        edges {
+          node {
+            fields {
+              slug
+            }
+          }
         }
       }
     }
@@ -93,6 +106,25 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       component: tagTemplate,
       context: {
         tag: tag.fieldValue,
+      },
+    })
+  })
+
+  // Create blog-list pages
+  const list = result.data.blogListData.edges
+  const listPerPage = 6
+  const numPages = Math.ceil(list.length / listPerPage)
+  Array.from({
+    length: numPages,
+  }).forEach((e, i) => {
+    createPage({
+      path: i === 0 ? `/blog` : `/blog/${i}`,
+      component: blogList,
+      context: {
+        limit: listPerPage,
+        skip: i * listPerPage,
+        numPages,
+        currentPage: i + 1,
       },
     })
   })

@@ -7,7 +7,6 @@ import SEO from "../components/seo"
 import STYLES from "./index.module.scss"
 
 const IndexPage = ({ data }) => {
-  console.log(data.site.siteMetadata.home_nav)
   return (
     <div className={STYLES.Index}>
       <SEO title="Blog" />
