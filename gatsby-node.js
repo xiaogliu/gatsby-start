@@ -110,7 +110,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     })
   })
 
-  // Create blog-list pages
+  // Create blog-list pages with pagination
   const list = result.data.blogListData.edges
   const listPerPage = 6
   const numPages = Math.ceil(list.length / listPerPage)
@@ -118,13 +118,14 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     length: numPages,
   }).forEach((e, i) => {
     createPage({
+      // it create route when create page 
       path: i === 0 ? `/blog` : `/blog/${i}`,
       component: blogList,
       context: {
         limit: listPerPage,
         skip: i * listPerPage,
         numPages,
-        currentPage: i + 1,
+        currentPage: i,
       },
     })
   })
